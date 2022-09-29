@@ -6,7 +6,7 @@ import {
   deleteSong,
   findAll,
   updateSong,
-} from "../controllers/song";
+} from "../controllers/music.js";
 
 const router = express.Router();
 

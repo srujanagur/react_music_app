@@ -1,4 +1,4 @@
-import { BadRequestError } from "../helpers/apiError";
+import { BadRequestError } from "../helpers/apiError.js";
 
 export default function (req, res, next) {
   if (

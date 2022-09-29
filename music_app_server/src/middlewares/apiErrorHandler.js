@@ -1,4 +1,4 @@
-import logger from "../util/logger";
+import logger from "../util/logger.js";
 
 export default function (error, req, res, next) {
   if (error.source) {

@@ -1,9 +1,9 @@
 import express from "express";
 import dotenv from "dotenv";
 
-import songRouter from "./routes/music";
-import apiErrorHandler from "./middlewares/apiErrorHandler";
-import apiContentType from "./middlewares/apiContentType";
+import songRouter from "./routes/music.js";
+import apiErrorHandler from "./middlewares/apiErrorHandler.js";
+import apiContentType from "./middlewares/apiContentType.js";
 
 dotenv.config({ path: ".env" });
 const app = express();

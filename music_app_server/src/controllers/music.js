@@ -1,8 +1,8 @@
-import { Request, Response, NextFunction } from "express";
+import express from "express";
 
-import Song from "../models/song";
-import SongService from "../services/music";
-import { BadRequestError } from "../helpers/apiError";
+import Song from "../models/Music.js";
+import SongService from "../services/music.js";
+import { BadRequestError } from "../helpers/apiError.js";
 
 // POST /songs
 export const createSong = async (req, res, next) => {

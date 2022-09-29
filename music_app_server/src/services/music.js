@@ -1,5 +1,5 @@
-import Song from "../models/Music";
-import { NotFoundError } from "../helpers/apiError";
+import Song from "../models/Music.js";
+import { NotFoundError } from "../helpers/apiError.js";
 
 const create = async (song) => {
   return song.save();
