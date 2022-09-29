@@ -18,20 +18,20 @@ function App() {
     };
 
     fetch(
-      "https://youtube-music1.p.rapidapi.com/v2/search?query=eminem",
+      "https://youtube-music1.p.rapidapi.com/v1/search?query=eminem",
       options
     )
       .then((response) => response.json())
       .then((data) => {
         setMusicList(data);
       });
-  }, [musicList]);
+  }, []);
 
   return (
     <div className="App">
       <h1>Music List</h1>
-      <h1>{musicList.songs}</h1>
-      {console.log(musicList)}
+
+      {console.log(musicList.result)}
       {/* <Card style={{ width: "18rem" }}>
         <Card.Body>
           {musicList.map((eachMusic) => {
