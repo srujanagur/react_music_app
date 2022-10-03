@@ -1,6 +1,8 @@
 import logger from "../util/logger.js";
 
 export default function (error, req, res, next) {
+  error.statusCode = error.statusCode || 500;
+  error.message = error.message || "Internal Server Error";
   if (error.source) {
     logger.error(error.source);
   }
