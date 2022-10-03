@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const songSchema = new mongoose.Schema({
+const SongSchema = new mongoose.Schema({
   songName: {
     type: String,
     required: [true, "Please enter the song name"],
@@ -28,4 +28,4 @@ const songSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model("Song", songSchema);
+export default mongoose.model("Song", SongSchema);
