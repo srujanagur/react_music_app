@@ -2,13 +2,13 @@ POST http://localhost:3000/api/v1/songs HTTP/1.1
 Content-Type: application/json
 
 {
-	"songName": "Maguva maguva",
-	"movieName": "Vakeel Saab",
-	"singer": ["Sid Sriram"],
-    "duration": 2,
-    "thumbNail": "something",
-    "audioId": "something"
-
+	"songName": "Na cheli rojave",
+	"movieName": "Roja",
+	"singer": ["A R Rahman"],
+    "duration": 300,
+    "thumbNail": "http://docs.google.com/uc?export=open&id=111KxzWTyCT4LGx5V0lNueAJd-nv_tPTi",
+    "audioUrl": "http://docs.google.com/uc?export=open&id=1rMaVarcfu3YZOEk5dFYDNbABErg1_CtJ"
+    
 }
 
 

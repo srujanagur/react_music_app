@@ -17,8 +17,8 @@ export const createSong = async (req, res, next) => {
       audioUrl,
     });
 
-    await SongService.create(song);
-    res.json(song);
+    var g = await SongService.create(song);
+    res.json(g);
   } catch (error) {
     if (error instanceof Error && error.name == "ValidationError") {
       next(new BadRequestError("Invalid Request", error));

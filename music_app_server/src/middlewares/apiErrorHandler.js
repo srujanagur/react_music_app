@@ -1,15 +1,12 @@
 import logger from "../util/logger.js";
 
 export default function (error, req, res, next) {
-  error.statusCode = error.statusCode || 500;
-  error.message = error.message || "Internal Server Error";
   if (error.source) {
-    logger.error(error.source);
+    // logger.error(error.source);
+    res.status(200).json({
+      status: "error",
+      statusCode: 200,
+      message: "my message",
+    });
   }
-
-  res.status(error.statusCode).json({
-    status: "error",
-    statusCode: error.statusCode,
-    message: error.message,
-  });
 }

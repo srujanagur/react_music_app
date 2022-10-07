@@ -21,10 +21,9 @@ const SongSchema = new mongoose.Schema({
     required: [true, "Please add url of the image"],
     unique: true,
   },
-  audioId: {
+  audioUrl: {
     type: String,
     required: [true, "Please add url of the image"],
-    unique: true,
   },
 });
 

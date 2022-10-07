@@ -2,7 +2,8 @@ import Song from "../models/Music.js";
 import { NotFoundError } from "../helpers/apiError.js";
 
 const create = async (song) => {
-  return song.save();
+  song.save();
+  return { status: "saved successfully" };
 };
 
 const findById = async (songId) => {
