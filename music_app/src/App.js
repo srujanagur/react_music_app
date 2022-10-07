@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import ReactAudioPlayer from "react-audio-player";
 
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
 import "./App.css";
@@ -9,18 +9,7 @@ import "./App.css";
 function App() {
   const [musicList, setMusicList] = useState([]);
   useEffect(() => {
-    const options = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": "25b9223b8emsh4c5dfe50b3d39ecp1d4e53jsn66cd82091764",
-        "X-RapidAPI-Host": "youtube-music1.p.rapidapi.com",
-      },
-    };
-
-    fetch(
-      "https://youtube-music1.p.rapidapi.com/v1/search?query=eminem",
-      options
-    )
+    fetch("http://localhost:3000/api/v1/songs")
       .then((response) => response.json())
       .then((data) => {
         setMusicList(data);
@@ -28,26 +17,25 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div>
       <h1>Music List</h1>
-
-      {console.log(musicList.result)}
-      {/* <Card style={{ width: "18rem" }}>
-        <Card.Body>
-          {musicList.map((eachMusic) => {
-            return (
-              <div>
-                <Card.Title>{eachMusic.songs.name}</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-              </div>
-            );
-          })}
-        </Card.Body>
-      </Card> */}
+      <div className="App">
+        {musicList.map((eachMusic) => {
+          return (
+            <Card style={{ width: "18rem" }}>
+              <Card.Img variant="top" src={eachMusic.thumbNail} />
+              <ReactAudioPlayer src={eachMusic.audioUrl} autoPlay controls />
+              <Card.Body>
+                <div>
+                  <Card.Title>{eachMusic.songName}</Card.Title>
+                  <Card.Text>{eachMusic.movieName}</Card.Text>
+                  <Card.Text>{eachMusic.singer}</Card.Text>
+                </div>
+              </Card.Body>
+            </Card>
+          );
+        })}
+      </div>
     </div>
   );
 }

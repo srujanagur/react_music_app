@@ -1,4 +1,9 @@
+* {
+  text-align: center;
+}
 .App {
+  display: flex;
+  justify-content: space-between;
   text-align: center;
 }
 
