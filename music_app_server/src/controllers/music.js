@@ -5,14 +5,14 @@ import { BadRequestError } from "../helpers/apiError.js";
 // POST /songs
 export const createSong = async (req, res, next) => {
   try {
-    const { songName, movieName, singer, duration, thumbNail, audioUrl } =
+    const { songName, movieName, singer, language, thumbNail, audioUrl } =
       req.body;
 
     const song = new Song({
       songName,
       movieName,
       singer,
-      duration,
+      language,
       thumbNail,
       audioUrl,
     });

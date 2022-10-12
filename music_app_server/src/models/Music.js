@@ -12,9 +12,9 @@ const SongSchema = new mongoose.Schema({
     index: true,
   },
   singer: [String],
-  duration: {
-    type: Number,
-    min: 1,
+  language: {
+    type: String,
+    index: true,
   },
   thumbNail: {
     type: String,
