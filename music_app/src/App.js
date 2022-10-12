@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import ReactAudioPlayer from "react-audio-player";
+import AudioPlayer from "react-h5-audio-player";
+
+import "react-h5-audio-player/lib/styles.css";
 
 import Card from "react-bootstrap/Card";
 
@@ -24,12 +26,17 @@ function App() {
           return (
             <Card style={{ width: "18rem" }}>
               <Card.Img variant="top" src={eachMusic.thumbNail} />
-              <ReactAudioPlayer src={eachMusic.audioUrl} autoPlay controls />
+              <AudioPlayer
+                autoPlay
+                src={eachMusic.audioUrl}
+                onPlay={(e) => console.log("onPlay")}
+              />
               <Card.Body>
                 <div>
                   <Card.Title>{eachMusic.songName}</Card.Title>
                   <Card.Text>{eachMusic.movieName}</Card.Text>
-                  <Card.Text>{eachMusic.singer}</Card.Text>
+                  <Card.Text>{eachMusic.singer[0]}</Card.Text>
+                  <Card.Text>{eachMusic.singer[1]}</Card.Text>
                 </div>
               </Card.Body>
             </Card>

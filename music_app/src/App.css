@@ -1,12 +1,11 @@
-* {
-  text-align: center;
-}
 .App {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  gap: 5px;
+  justify-content: space-around;
+}
+h1 {
   text-align: center;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
