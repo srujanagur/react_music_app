@@ -3,12 +3,6 @@ import app from "./app.js";
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const mongoUri = process.env.MONGODB_URI;
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "build", "index.html"));
-  });
-}
 
 mongoose
   .connect(mongoUri, {

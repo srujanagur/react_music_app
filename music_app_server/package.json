@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node src/server.js",
-    "server": "nodemon src/server.js",
-     "heroku-postbuild": "npm install --prefix music_app && npm run build --prefix music_app"
+    "server": "nodemon src/server.js"
   },
   "type": "module",
   "author": "",

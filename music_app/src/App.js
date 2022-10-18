@@ -9,7 +9,7 @@ import "./App.css";
 function App() {
   const [musicList, setMusicList] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/api/v1/songs")
+    fetch(" https://songsdb1.herokuapp.com/api/v1/songs")
       .then((response) => response.json())
       .then((data) => {
         setMusicList(data);
