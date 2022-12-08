@@ -1,0 +1,37 @@
+.songlist {
+  display: flex;
+
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  color: var(--primary-text);
+}
+
+.each {
+  margin: 5px;
+  padding: 10px;
+  border: 2px solid grey;
+  border-radius: 20px;
+  background-color: var(--secondary-bg);
+}
+.main {
+  margin-left: 20px;
+  padding: 50px;
+}
+
+.songlistimage {
+  justify-content: center;
+  margin: 2px;
+  width: 200px;
+  height: 200px;
+}
+.cartbtn {
+  margin-left: 2rem;
+}
+.carouselimage {
+  margin-left: 25rem;
+  width: 300px;
+  height: 200px;
+  border-radius: 20px;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+}

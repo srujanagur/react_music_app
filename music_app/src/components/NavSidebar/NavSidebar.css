@@ -1,0 +1,18 @@
+.navbar {
+  justify-content: left;
+}
+.sideslide {
+  width: 100px;
+}
+.links {
+  text-decoration: none;
+  color: black;
+  padding: 20px 20px 0px 0px;
+}
+.mainnavbar {
+  background-color: lightgray;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+}
