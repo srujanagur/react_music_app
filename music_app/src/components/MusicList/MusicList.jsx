@@ -20,7 +20,9 @@ export default function MusicList() {
       ? state.songsReducer.filteredData
       : state.songsReducer.songs
   );
-  const { whishlist } = useSelector((state) => state.songsReducer);
+  const whishlist = useSelector((state) => state.songsReducer);
+  console.log(JSON.stringify(whishlist.songs[0].songName));
+  const requiredlist = whishlist.songs;
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchSongs());
@@ -52,16 +54,16 @@ export default function MusicList() {
                   {eachMusic.singer[1]}
                 </div>
               </Card.Body>
-              {/* <button
+              <button
                 type="button"
                 className="cartbtn"
-                disabled={whishlist
-                  .map((eachMusic) => console.log(eachMusic.songName))
+                disabled={requiredlist
+                  .map((eachMusic) => eachMusic.songName)
                   .includes(eachMusic.songName)}
                 onClick={() => dispatch(addToWhishlist(eachMusic))}
               >
                 AddToFavourites <BsSuitHeartFill className="heart" />
-              </button> */}
+              </button>
             </Card>
           </div>
         ))}

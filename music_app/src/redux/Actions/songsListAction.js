@@ -13,13 +13,13 @@ export function searchForKeyword(keyword) {
 export function addToWhishlist(song) {
   return {
     type: "ADD_TO_WHISHLIST",
-    payload: song,
+    payload: { song },
   };
 }
 export function deleteFromWhishList(song) {
   return {
     type: "DELETE_FROM_WHISHLIST",
-    payload: song,
+    payload: { song },
   };
 }
 export function sortByLanguage(songssort) {

@@ -8,11 +8,11 @@ import { deleteFromWhishList } from "../../redux/Actions/songsListAction";
 export default function WhishList() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { whishlist } = useSelector((state) => state.songsReducer);
+  const whishlist = useSelector((state) => state.songsReducer);
   console.log("from whishlist" + JSON.stringify(whishlist));
   return (
     <div className="whishlist">
-      {whishlist.map((song) => {
+      {whishlist.songs.map((song) => {
         return (
           <div className="whishlisteach">
             <h5>{song.songName}</h5>

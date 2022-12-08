@@ -18,7 +18,9 @@ export default function songsReducer(state = initialState, action) {
     case "SEARCH_KEYWORD": {
       const keyword = action.payload;
       let songs = state.songs.filter((songs) => {
-        return songs.title.toLowerCase().search(keyword.toLowerCase()) !== -1;
+        return (
+          songs.songName.toLowerCase().search(keyword.toLowerCase()) !== -1
+        );
       });
       return {
         ...state,
@@ -27,14 +29,15 @@ export default function songsReducer(state = initialState, action) {
       };
     }
     case "ADD_TO_WHISHLIST": {
-      const song = action.payload;
+      const { song } = action.payload;
+
       return {
         ...state,
         whishlist: [...state.whishlist, song],
       };
     }
     case "DELETE_FROM_WHISHLIST": {
-      const song = action.payload;
+      const { song } = action.payload;
       return {
         ...state,
         whishlist: state.whishlist.filter(function (item) {
