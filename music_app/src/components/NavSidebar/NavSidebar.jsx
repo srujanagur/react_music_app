@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { searchForKeyword } from "../../redux/Actions/songsListAction";
+import { sortByLanguage } from "../../redux/Actions/songsListAction";
+import { sortBysong } from "../../redux/Actions/songsListAction";
 
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -13,10 +17,18 @@ import {
   BsMusicNoteList,
   BsSuitHeartFill,
 } from "react-icons/bs";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
 import "./NavSidebar.css";
 
 export default function NavSidebar() {
+  const { keyword } = useSelector((state) => state.songsReducer);
+  const { songssort } = useSelector((state) => state.songsReducer);
+
+  const dispatch = useDispatch();
+  const handleChange = (evt) => {
+    dispatch(searchForKeyword(evt.target.value));
+  };
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -34,9 +46,17 @@ export default function NavSidebar() {
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title>Music App</Offcanvas.Title>
               </Offcanvas.Header>
-              <Link className="links" to="/Search">
-                Search
-              </Link>
+              <Form className="d-flex">
+                <Form.Control
+                  type="search"
+                  placeholder="Search for a song"
+                  className="me-2"
+                  aria-label="Search "
+                  onChange={handleChange}
+                  value={keyword}
+                />
+                <Button variant="light">Search</Button>
+              </Form>
               <Link className="links" to="/songslist">
                 songs
                 <BsMusicNoteList />
@@ -54,12 +74,24 @@ export default function NavSidebar() {
             <Nav.Link href="/songslist">Songs</Nav.Link>
             <Nav.Link href="/whishlist">Favourites</Nav.Link>
           </Nav>
+          <NavDropdown title="SortBy" id="basic-nav-dropdown">
+            <NavDropdown.Item
+              onClick={() => dispatch(sortByLanguage(songssort))}
+            >
+              Language
+            </NavDropdown.Item>
+            <NavDropdown.Item onClick={() => dispatch(sortBysong(songssort))}>
+              Song
+            </NavDropdown.Item>
+          </NavDropdown>
           <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              onChange={handleChange}
+              value={keyword}
             />
             <Button variant="light">Search</Button>
           </Form>

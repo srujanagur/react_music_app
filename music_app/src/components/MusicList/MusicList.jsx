@@ -21,8 +21,9 @@ export default function MusicList() {
       : state.songsReducer.songs
   );
   const whishlist = useSelector((state) => state.songsReducer);
-  console.log(JSON.stringify(whishlist.songs[0].songName));
+  // console.log(JSON.stringify(whishlist.songs.songName));
   const requiredlist = whishlist.songs;
+  console.log(requiredlist[0]);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchSongs());
@@ -40,7 +41,7 @@ export default function MusicList() {
                 src={eachMusic.thumbNail}
               />
               <AudioPlayer
-                autoPlay
+                controls
                 src={eachMusic.audioUrl}
                 //onPlay={(e) => console.log("onPlay")}
               />
@@ -58,7 +59,7 @@ export default function MusicList() {
                 type="button"
                 className="cartbtn"
                 disabled={requiredlist
-                  .map((eachMusic) => eachMusic.songName)
+                  .map((song) => song.songName)
                   .includes(eachMusic.songName)}
                 onClick={() => dispatch(addToWhishlist(eachMusic))}
               >

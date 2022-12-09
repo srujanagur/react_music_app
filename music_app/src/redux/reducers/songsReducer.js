@@ -4,7 +4,7 @@ const initialState = {
   whishlist: [],
   theme: "light",
   songssort: true,
-  time: true,
+  language: true,
   filteredData: [],
 };
 export default function songsReducer(state = initialState, action) {
@@ -33,14 +33,14 @@ export default function songsReducer(state = initialState, action) {
 
       return {
         ...state,
-        whishlist: [...state.whishlist, song],
+        whishlist: [...state.whishlist.songs, song],
       };
     }
     case "DELETE_FROM_WHISHLIST": {
       const { song } = action.payload;
       return {
         ...state,
-        whishlist: state.whishlist.filter(function (item) {
+        whishlist: state.whishlist.songs.filter(function (item) {
           return item !== song;
         }),
       };
@@ -57,15 +57,15 @@ export default function songsReducer(state = initialState, action) {
             ),
         songssort: !state.songssort,
       };
-    case "SORT_BY_SINGER_NAME":
+    case "SORT_BY_SONG_NAME":
       return {
         ...state,
         songs: action.payload
           ? [...state.songs].sort((a, b) =>
-              a.singer.toLowerCase() > b.language.toLowerCase() ? 1 : -1
+              a.songName.toLowerCase() > b.songName.toLowerCase() ? 1 : -1
             )
           : [...state.songs]?.sort((a, b) =>
-              a.singer.toLowerCase() < b.language.toLowerCase() ? 1 : -1
+              a.singName.toLowerCase() < b.songName.toLowerCase() ? 1 : -1
             ),
         songssort: !state.songssort,
       };

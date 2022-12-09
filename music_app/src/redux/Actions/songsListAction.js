@@ -31,7 +31,7 @@ export function sortByLanguage(songssort) {
 
 export function sortBysong(songssort) {
   return {
-    type: "SORT_BY_SINGER_NAME",
+    type: "SORT_BY_SONG_NAME",
     payload: songssort,
   };
 }
