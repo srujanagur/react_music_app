@@ -46,7 +46,7 @@ export function fetchSongs() {
     fetch("http://localhost:3000/api/v1/songs")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        console.log("fetchdata" + data);
 
         dispatch(getSongs(data));
       });

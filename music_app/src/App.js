@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/songslist" element={<MusicList />}></Route>
-          <Route path="/whishlist" element={<WhishList />}></Route>
+          {/* <Route path="/whishlist" element={<WhishList />}></Route> */}
         </Routes>
       </BrowserRouter>
     </div>

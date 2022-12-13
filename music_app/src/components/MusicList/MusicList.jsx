@@ -13,6 +13,7 @@ import Card from "react-bootstrap/Card";
 import { BsSuitHeartFill } from "react-icons/bs";
 
 import "./MusicList.css";
+import songsReducer from "../../redux/reducers/songsReducer";
 
 export default function MusicList() {
   const finalSongsList = useSelector((state) =>
@@ -20,14 +21,16 @@ export default function MusicList() {
       ? state.songsReducer.filteredData
       : state.songsReducer.songs
   );
-  const whishlist = useSelector((state) => state.songsReducer);
-  // console.log(JSON.stringify(whishlist.songs.songName));
-  const requiredlist = whishlist.songs;
-  console.log(requiredlist[0]);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchSongs());
   }, [dispatch]);
+
+  console.log(JSON.stringify(finalSongsList));
+  const { whishlist } = useSelector((state) => state.songsReducer);
+  // console.log(JSON.stringify(whishlist.songs.songName));
+  // const requiredlist = whishlist.songs;
+  // console.log(requiredlist[0]);
 
   return (
     <div className="main">
@@ -55,7 +58,7 @@ export default function MusicList() {
                   {eachMusic.singer[1]}
                 </div>
               </Card.Body>
-              <button
+              {/* <button
                 type="button"
                 className="cartbtn"
                 disabled={requiredlist
@@ -64,7 +67,7 @@ export default function MusicList() {
                 onClick={() => dispatch(addToWhishlist(eachMusic))}
               >
                 AddToFavourites <BsSuitHeartFill className="heart" />
-              </button>
+              </button> */}
             </Card>
           </div>
         ))}
